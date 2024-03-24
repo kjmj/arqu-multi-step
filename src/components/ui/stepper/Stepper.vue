@@ -67,9 +67,12 @@ watch(currentStep, (newCurrentStep) => {
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
     <div class="flex whitespace-nowrap md:flex-col bg-green-600">
-      <div v-for="(step, idx) in steps" :key="'step-' + idx">
+      <div v-for="(step, idx) in steps" :key="'step-' + idx" class="flex">
         <div>{{ to1BasedIdx(idx) }}</div>
-        <div class="hidden md:block">{{ step }}</div>
+        <div class="hidden md:block">
+          <div>{{ "Step " + to1BasedIdx(idx) }}</div>
+          <div>{{ step }}</div>
+        </div>
       </div>
     </div>
     <div class="flex flex-col grow justify-between min-h-0 bg-red-600">

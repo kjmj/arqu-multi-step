@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import Stepper from "@/components/ui/stepper/Stepper.vue";
 
-const steps = ["Step 1", "Step 2", "Step 3", "hello"];
+const steps = [
+  "custom text step 1",
+  "custom text step 2",
+  "custom text step 3",
+  "custom text step 4",
+];
 </script>
 
 <template>
