@@ -24,10 +24,14 @@ function showCurrentStepItem(idx: number): boolean {
   return currentStep.value === to1BasedIdx(idx);
 }
 
-function pushToStep(step: string): void {
+function pushToStep(step: number): void {
+  if (step !== currentStep.value) {
+    // update the current step
+    currentStep.value = step;
+  }
   router.push({
     name: "app",
-    params: { step: step },
+    params: { step: stepRouteText(step) },
   });
 }
 
@@ -56,18 +60,23 @@ const nextStepButtonText = computed(() => {
 });
 
 onMounted(() => {
-  pushToStep(stepRouteText(1));
+  pushToStep(1);
 });
 
 watch(currentStep, (newCurrentStep) => {
-  pushToStep(stepRouteText(newCurrentStep));
+  pushToStep(newCurrentStep);
 });
 </script>
 
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
     <div class="flex whitespace-nowrap md:flex-col bg-green-600">
-      <div v-for="(step, idx) in steps" :key="'step-' + idx" class="flex">
+      <div
+        v-for="(step, idx) in steps"
+        :key="'step-' + idx"
+        class="flex"
+        @click="pushToStep(to1BasedIdx(idx))"
+      >
         <div>{{ to1BasedIdx(idx) }}</div>
         <div class="hidden md:block">
           <div>{{ "Step " + to1BasedIdx(idx) }}</div>
