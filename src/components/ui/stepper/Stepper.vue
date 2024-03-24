@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import Button from "@/components/ui/button/Button.vue";
 import { to1BasedIdx } from "@/utils/string-utils";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const props = defineProps<{
   steps: any[];
@@ -21,6 +24,21 @@ function showCurrentStepItem(idx: number): boolean {
   return currentStep.value === to1BasedIdx(idx);
 }
 
+function pushToStep(step: string): void {
+  router.push({
+    name: "app",
+    params: { step: step },
+  });
+}
+
+function stepRouteText(step: number): string {
+  if (isStepperBeforeSubmit.value) {
+    return "step-" + step.toString();
+  } else {
+    return "submit";
+  }
+}
+
 const isStepperBeforeSubmit = computed(() => {
   return currentStep.value <= props.steps.length;
 });
@@ -35,6 +53,14 @@ const showSubmitItem = computed(() => {
 
 const nextStepButtonText = computed(() => {
   return currentStep.value === props.steps.length ? "Submit" : "Next Step";
+});
+
+onMounted(() => {
+  pushToStep(stepRouteText(1));
+});
+
+watch(currentStep, (newCurrentStep) => {
+  pushToStep(stepRouteText(newCurrentStep));
 });
 </script>
 
