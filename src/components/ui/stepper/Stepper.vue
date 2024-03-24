@@ -3,6 +3,7 @@ import { computed, onMounted, ref, watch } from "vue";
 import Button from "@/components/ui/button/Button.vue";
 import { to1BasedIdx } from "@/utils/string-utils";
 import { useRouter } from "vue-router";
+import Circle from "@/components/ui/circle/Circle.vue";
 
 const router = useRouter();
 
@@ -20,7 +21,7 @@ function nextStepClicked(): void {
   currentStep.value += 1;
 }
 
-function showCurrentStepItem(idx: number): boolean {
+function isIdxCurrentStep(idx: number): boolean {
   return currentStep.value === to1BasedIdx(idx);
 }
 
@@ -70,14 +71,16 @@ watch(currentStep, (newCurrentStep) => {
 
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
-    <div class="flex whitespace-nowrap md:flex-col bg-green-600">
+    <div class="flex whitespace-nowrap md:flex-col bg-green-600 gap-8">
       <div
         v-for="(step, idx) in steps"
         :key="'step-' + idx"
-        class="flex"
+        class="flex items-center gap-3"
         @click="pushToStep(to1BasedIdx(idx))"
       >
-        <div>{{ to1BasedIdx(idx) }}</div>
+        <Circle :is-active="isIdxCurrentStep(idx)">{{
+          to1BasedIdx(idx)
+        }}</Circle>
         <div class="hidden md:block">
           <div>{{ "Step " + to1BasedIdx(idx) }}</div>
           <div>{{ step }}</div>
@@ -88,7 +91,7 @@ watch(currentStep, (newCurrentStep) => {
       <div class="overflow-y-auto">
         <div
           v-for="(step, idx) in steps"
-          v-show="showCurrentStepItem(idx)"
+          v-show="isIdxCurrentStep(idx)"
           :key="'slot-container-' + to1BasedIdx(idx)"
         >
           <slot :name="'item-' + to1BasedIdx(idx)"></slot>
@@ -111,3 +114,5 @@ watch(currentStep, (newCurrentStep) => {
     </div>
   </div>
 </template>
+
+<style scoped></style>
