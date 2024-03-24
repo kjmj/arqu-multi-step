@@ -71,7 +71,9 @@ watch(currentStep, (newCurrentStep) => {
 
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
-    <div class="flex whitespace-nowrap md:flex-col bg-green-600 gap-8">
+    <div
+      class="flex whitespace-nowrap md:flex-col bg-green-600 gap-8 justify-center md:justify-start"
+    >
       <div
         v-for="(step, idx) in steps"
         :key="'step-' + idx"
