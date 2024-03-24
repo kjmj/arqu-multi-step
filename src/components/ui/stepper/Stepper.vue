@@ -75,7 +75,7 @@ watch(currentStep, (newCurrentStep) => {
       <div
         v-for="(step, idx) in steps"
         :key="'step-' + idx"
-        class="flex items-center gap-3"
+        class="flex items-center gap-3 cursor-pointer"
         @click="pushToStep(to1BasedIdx(idx))"
       >
         <Circle :is-active="isIdxCurrentStep(idx)">{{
