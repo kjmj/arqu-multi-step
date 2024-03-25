@@ -72,7 +72,7 @@ watch(currentStep, (newCurrentStep) => {
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
     <div
-      class="flex whitespace-nowrap md:flex-col bg-green-600 gap-8 justify-center md:justify-start"
+      class="flex whitespace-nowrap md:flex-col bg-blue-400 gap-8 justify-center md:justify-start"
     >
       <div
         v-for="(step, idx) in steps"
@@ -89,7 +89,7 @@ watch(currentStep, (newCurrentStep) => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col grow justify-between min-h-0 bg-red-600">
+    <div class="flex flex-col grow justify-between min-h-0">
       <div class="overflow-y-auto">
         <div
           v-for="(step, idx) in steps"
