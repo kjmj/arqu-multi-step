@@ -4,6 +4,7 @@ import { plans } from "@/data/plans";
 import checkoutStore from "@/store/CheckoutStore";
 import PlanCard from "@/components/ui/plan-card/PlanCard.vue";
 import Switch from "@/components/ui/switch/Switch.vue";
+import Label from "@/components/ui/label/Label.vue";
 </script>
 
 <template>
