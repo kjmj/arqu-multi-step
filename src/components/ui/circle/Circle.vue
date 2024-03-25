@@ -18,13 +18,13 @@ defineProps<{
   height: 2.5rem;
   border-radius: 50%;
   border: 1px solid;
-  color: theme("colors.primary.foreground");
+  color: theme("colors.secondary.DEFAULT");
   transition: all 0.25s ease-in-out;
 }
 
 .active {
   color: theme("colors.primary.DEFAULT");
-  border: 1px solid theme("colors.primary.foreground");
-  background-color: theme("colors.primary.foreground");
+  border: 1px solid theme("colors.secondary.DEFAULT");
+  background-color: theme("colors.secondary.DEFAULT");
 }
 </style>

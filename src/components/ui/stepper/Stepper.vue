@@ -72,7 +72,7 @@ watch(currentStep, (newCurrentStep) => {
 <template>
   <div class="h-full flex flex-col grow md:flex-row">
     <div
-      class="flex whitespace-nowrap md:flex-col bg-blue-400 gap-8 justify-center md:justify-start"
+      class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start"
     >
       <div
         v-for="(step, idx) in steps"
@@ -84,8 +84,8 @@ watch(currentStep, (newCurrentStep) => {
           to1BasedIdx(idx)
         }}</Circle>
         <div class="hidden md:block">
-          <div>{{ "Step " + to1BasedIdx(idx) }}</div>
-          <div>{{ step }}</div>
+          <div class="text-off_white">{{ "STEP " + to1BasedIdx(idx) }}</div>
+          <div class="text-white font-bold">{{ step }}</div>
         </div>
       </div>
     </div>
