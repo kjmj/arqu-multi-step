@@ -8,6 +8,7 @@ const state = reactive({
   name: "",
   plan: defaultPlan,
   addons: [],
+  isBilledYearly: false,
 });
 
 const methods = {

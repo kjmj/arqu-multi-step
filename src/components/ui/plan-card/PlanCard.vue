@@ -4,11 +4,11 @@ import { computed } from "vue";
 const props = defineProps<{
   name: string;
   price: number;
-  isMonthly: boolean;
+  isYearly: boolean;
 }>();
 
 const priceText = computed(() => {
-  return props.isMonthly ? `${props.price}/month` : `${props.price}/year`;
+  return props.isYearly ? `${props.price}/year` : `${props.price}/month`;
 });
 </script>
 
