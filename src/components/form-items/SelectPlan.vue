@@ -5,7 +5,10 @@ import checkoutStore from "@/store/CheckoutStore";
 </script>
 
 <template>
-  <FormContentContainer title="Step 2 title" subtitle="Step 2 subtitle">
+  <FormContentContainer
+    title="Select your plan"
+    subtitle="You can choose to be billed monthly or annually"
+  >
     <div
       v-for="plan in plans"
       :key="plan"

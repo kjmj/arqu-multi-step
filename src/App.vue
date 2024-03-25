@@ -6,12 +6,7 @@ import SelectPlan from "@/components/form-items/SelectPlan.vue";
 import Summary from "@/components/form-items/Summary.vue";
 import Submit from "@/components/form-items/Submit.vue";
 
-const steps = [
-  "custom text step 1",
-  "custom text step 2",
-  "custom text step 3",
-  "custom text step 4",
-];
+const steps = ["YOUR INFO", "SELECT A PLAN", "SELECT ADD-ONS", "SUMMARY"];
 </script>
 
 <template>

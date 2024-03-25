@@ -5,7 +5,10 @@ import CheckoutStore from "@/store/CheckoutStore";
 </script>
 
 <template>
-  <FormContentContainer title="Step 1 title" subtitle="Step 1 subtitle">
+  <FormContentContainer
+    title="Personal Information"
+    subtitle="Please provide your name"
+  >
     <LabeledInput
       id="name-input"
       v-model="CheckoutStore.state.name"

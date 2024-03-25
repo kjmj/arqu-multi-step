@@ -5,7 +5,10 @@ import checkoutStore from "@/store/CheckoutStore";
 </script>
 
 <template>
-  <FormContentContainer title="Step 3 title" subtitle="Step 3 subtitle">
+  <FormContentContainer
+    title="Select your add-ons"
+    subtitle="Add ons supercharge your plan"
+  >
     <div
       v-for="addon in addons"
       :key="addon"
