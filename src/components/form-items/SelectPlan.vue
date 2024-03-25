@@ -6,7 +6,11 @@ import checkoutStore from "@/store/CheckoutStore";
 
 <template>
   <FormContentContainer title="Step 2 title" subtitle="Step 2 subtitle">
-    <div v-for="plan in plans" :key="plan">
+    <div
+      v-for="plan in plans"
+      :key="plan"
+      @click="checkoutStore.methods.changePlan(plan)"
+    >
       {{ plan.name }}
     </div>
   </FormContentContainer>
