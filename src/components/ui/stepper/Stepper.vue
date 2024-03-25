@@ -70,48 +70,50 @@ watch(currentStep, (newCurrentStep) => {
 </script>
 
 <template>
-  <div class="h-full flex flex-col grow md:flex-row">
-    <div
-      class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start"
-    >
+  <div class="h-full bg-white md:p-2 rounded-md shadow-md">
+    <div class="h-full flex flex-col grow md:flex-row">
       <div
-        v-for="(step, idx) in steps"
-        :key="'step-' + idx"
-        class="flex items-center gap-3 cursor-pointer"
-        @click="pushToStep(to1BasedIdx(idx))"
+        class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start md:rounded-md py-8 md:p-8"
       >
-        <Circle :is-active="isIdxCurrentStep(idx)">{{
-          to1BasedIdx(idx)
-        }}</Circle>
-        <div class="hidden md:block">
-          <div class="text-off_white">{{ "STEP " + to1BasedIdx(idx) }}</div>
-          <div class="text-white font-bold">{{ step }}</div>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col grow justify-between min-h-0">
-      <div class="overflow-y-auto">
         <div
           v-for="(step, idx) in steps"
-          v-show="isIdxCurrentStep(idx)"
-          :key="'slot-container-' + to1BasedIdx(idx)"
+          :key="'step-' + idx"
+          class="flex items-center gap-3 cursor-pointer"
+          @click="pushToStep(to1BasedIdx(idx))"
         >
-          <slot :name="'item-' + to1BasedIdx(idx)"></slot>
-        </div>
-        <div v-show="showSubmitItem">
-          <slot name="item-submit"></slot>
+          <Circle :is-active="isIdxCurrentStep(idx)">{{
+            to1BasedIdx(idx)
+          }}</Circle>
+          <div class="hidden md:block">
+            <div class="text-off_white">{{ "STEP " + to1BasedIdx(idx) }}</div>
+            <div class="text-white font-bold">{{ step }}</div>
+          </div>
         </div>
       </div>
-      <div v-show="isStepperBeforeSubmit" class="flex justify-between">
-        <Button
-          v-show="isStepperPastStep1"
-          variant="ghost"
-          @click="goBackClicked"
-          >Go Back</Button
-        >
-        <Button class="justify-self-end ml-auto" @click="nextStepClicked">{{
-          nextStepButtonText
-        }}</Button>
+      <div class="flex flex-col grow justify-between min-h-0 p-4 md:p8">
+        <div class="overflow-y-auto">
+          <div
+            v-for="(step, idx) in steps"
+            v-show="isIdxCurrentStep(idx)"
+            :key="'slot-container-' + to1BasedIdx(idx)"
+          >
+            <slot :name="'item-' + to1BasedIdx(idx)"></slot>
+          </div>
+          <div v-show="showSubmitItem">
+            <slot name="item-submit"></slot>
+          </div>
+        </div>
+        <div v-show="isStepperBeforeSubmit" class="flex justify-between">
+          <Button
+            v-show="isStepperPastStep1"
+            variant="ghost"
+            @click="goBackClicked"
+            >Go Back</Button
+          >
+          <Button class="justify-self-end ml-auto" @click="nextStepClicked">{{
+            nextStepButtonText
+          }}</Button>
+        </div>
       </div>
     </div>
   </div>

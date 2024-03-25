@@ -58,6 +58,7 @@ module.exports = {
         },
         med_blue: "#1e40af",
         off_white: "#e2e8f0",
+        light_gray: "#64748b",
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

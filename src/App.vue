@@ -11,13 +11,15 @@ const steps = ["YOUR INFO", "SELECT A PLAN", "SELECT ADD-ONS", "SUMMARY"];
 
 <template>
   <div class="h-screen">
-    <Stepper :steps="steps">
-      <template #item-1><PersonalInfo /></template>
-      <template #item-2><SelectPlan /></template>
-      <template #item-3><AddOns /></template>
-      <template #item-4><Summary /></template>
-      <template #item-submit> <Submit /></template>
-    </Stepper>
+    <div class="h-full md:grid md:place-content-center bg-off_white">
+      <Stepper :steps="steps">
+        <template #item-1><PersonalInfo /></template>
+        <template #item-2><SelectPlan /></template>
+        <template #item-3><AddOns /></template>
+        <template #item-4><Summary /></template>
+        <template #item-submit> <Submit /></template>
+      </Stepper>
+    </div>
   </div>
 </template>
 
