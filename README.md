@@ -1,4 +1,5 @@
 # arqu-multi-step
+A multi step form which demonstrates most parts of a basic vue application.
 
 ## Basic Setup
 
@@ -18,10 +19,3 @@ npm run lint
 # format code
 npm run format
 ```
-
-1. `npm install`
-2. `npm run dev`
-
-## Linting and code format
-
-`npm run lint`
