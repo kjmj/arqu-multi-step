@@ -41,7 +41,7 @@ const steps = [
 </script>
 
 <template>
-  <div class="h-screen">
+  <div class="h-[calc(100dvh)]">
     <div
       class="h-full md:place-content-center bg-gray-lightest md:flex md:items-center md:justify-center md:p-8"
     >
