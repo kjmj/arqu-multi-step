@@ -34,7 +34,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
         <Separator class="my-4" />
         <div
           v-for="addon in checkoutStore.state.addons"
-          :key="addon"
+          :key="addon.id"
           class="flex justify-between"
         >
           <div class="text-gray-light">{{ addon.name }}</div>

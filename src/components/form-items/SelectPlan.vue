@@ -16,7 +16,7 @@ import Label from "@/components/ui/label/Label.vue";
       <div class="grid grid-rows-1 gap-3 md:grid-cols-2">
         <PlanCard
           v-for="plan in plans"
-          :key="plan"
+          :key="plan.id"
           :plan="plan"
           :price="checkoutStore.getters.planPrice(plan)"
           :is-yearly="checkoutStore.state.isBilledYearly"

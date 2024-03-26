@@ -131,7 +131,7 @@ watch(currentStep, (newCurrentStep) => {
           <div
             v-for="(step, idx) in steps"
             v-show="isIdxCurrentStep(idx)"
-            :key="'slot-container-' + to1BasedIdx(idx)"
+            :key="'slot-container-' + to1BasedIdx(idx) + step"
           >
             <slot :name="'item-' + to1BasedIdx(idx)"></slot>
           </div>

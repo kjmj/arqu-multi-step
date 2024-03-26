@@ -18,7 +18,7 @@ function isAddOnSelected(addon: AddOn): boolean {
     <div class="grid grid-rows-1 gap-3">
       <AddOnCard
         v-for="addon in addons"
-        :key="addon"
+        :key="addon.id"
         :price="checkoutStore.getters.addOnPrice(addon)"
         :is-yearly="checkoutStore.state.isBilledYearly"
         :addon="addon"
