@@ -1,5 +1,6 @@
 # arqu-multi-step
-A multi step form which demonstrates most parts of a basic vue application.
+
+A multi-step form which demonstrates most parts of a basic vue application.
 
 ## Basic Setup
 
@@ -13,10 +14,10 @@ npm run dev
 # build for production
 npm run build
 
-# preview build before production
+# preview build
 npm run preview
 
-# lint
+# lint code and try to fix issues
 npm run lint
 
 # format code
