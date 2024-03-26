@@ -2,6 +2,8 @@
 
 A multi-step form which demonstrates most parts of a basic vue application.
 
+View it here: https://arqu-multi-step.vercel.app/
+
 ## Basic Setup
 
 ```
