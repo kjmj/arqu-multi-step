@@ -48,7 +48,7 @@ const iconColor = computed(() => {
     <div class="flex items-center md:items-start md:flex-col">
       <Icon
         :icon="radixIcon"
-        class="h-[2rem] w-[2rem] mr-4 md:mb-12"
+        class="h-[2rem] w-[2rem] md:h-[2.5rem] md:w-[2.5rem] mr-4 md:mb-12"
         :color="iconColor"
       />
       <div>
