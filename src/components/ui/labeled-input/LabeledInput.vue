@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="grid w-full max-w-sm items-center gap-1.5">
+  <div class="grid w-full items-center gap-1.5">
     <Label :for="id">{{ label }}</Label>
     <Input :id="id" :placeholder="placeholder" v-bind="$attrs" />
   </div>
