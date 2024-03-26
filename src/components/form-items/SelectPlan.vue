@@ -12,29 +12,45 @@ import Label from "@/components/ui/label/Label.vue";
     title="Select your plan"
     subtitle="You can choose to be billed monthly or annually"
   >
-    <div class="grid grid-rows-2 gap-2 md:grid-cols-2">
-      <PlanCard
-        v-for="plan in plans"
-        :key="plan"
-        :name="plan.name"
-        :price="
-          checkoutStore.state.isBilledYearly
-            ? plan.pricePerYear
-            : plan.pricePerMonth
-        "
-        :is-yearly="checkoutStore.state.isBilledYearly"
-        @click="checkoutStore.methods.changePlan(plan)"
+    <div class="flex flex-col align-center">
+      <div class="grid grid-rows-1 gap-3 md:grid-cols-2">
+        <PlanCard
+          v-for="plan in plans"
+          :key="plan"
+          :name="plan.name"
+          :price="
+            checkoutStore.state.isBilledYearly
+              ? plan.pricePerYear
+              : plan.pricePerMonth
+          "
+          :is-yearly="checkoutStore.state.isBilledYearly"
+          :is-active="checkoutStore.state.plan.id === plan.id"
+          @click="checkoutStore.methods.changePlan(plan)"
+        >
+        </PlanCard>
+      </div>
+      <div
+        class="flex justify-center space-x-2 p-4 bg-primary-light w-full mt-8 rounded-md"
       >
-      </PlanCard>
-    </div>
-    <div class="flex items-center space-x-2">
-      <Label for="yearly-toggle">Monthly</Label>
-      <Switch
-        id="yearly-toggle"
-        :checked="checkoutStore.state.isBilledYearly"
-        @update:checked="(v) => (checkoutStore.state.isBilledYearly = v)"
-      />
-      <Label for="yearly-toggle">Yearly</Label>
+        <Label
+          for="yearly-toggle"
+          class="flex items-center"
+          :class="checkoutStore.state.isBilledYearly ? '' : 'font-bold'"
+          >Monthly</Label
+        >
+        <Switch
+          id="yearly-toggle"
+          :checked="checkoutStore.state.isBilledYearly"
+          class="data-[state=checked]:bg-primary data-[state=unchecked]:bg-primary"
+          @update:checked="(v) => (checkoutStore.state.isBilledYearly = v)"
+        />
+        <Label
+          for="yearly-toggle"
+          class="flex items-center"
+          :class="checkoutStore.state.isBilledYearly ? 'font-bold' : ''"
+          >Yearly</Label
+        >
+      </div>
     </div>
   </FormContentContainer>
 </template>
