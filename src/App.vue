@@ -11,8 +11,13 @@ const steps = ["YOUR INFO", "SELECT A PLAN", "SELECT ADD-ONS", "SUMMARY"];
 
 <template>
   <div class="h-screen">
-    <div class="h-full md:grid md:place-content-center bg-off_white">
-      <Stepper :steps="steps">
+    <div
+      class="h-full md:place-content-center bg-off_white md:flex md:items-center md:justify-center"
+    >
+      <Stepper
+        :steps="steps"
+        class="md:w-[min(100%,800px)] md:h-[min(100%,550px)]"
+      >
         <template #item-1><PersonalInfo /></template>
         <template #item-2><SelectPlan /></template>
         <template #item-3><AddOns /></template>
