@@ -16,7 +16,7 @@ const personalInfoForm = useForm({
       name: z.string().min(2, {
         message: "Name must be at least 2 characters",
       }),
-      email: z.string().email("This is not a valid email."),
+      email: z.string().email("This is not a valid email"),
     }),
   ),
 });
