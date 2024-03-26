@@ -2,6 +2,7 @@
 import FormContentContainer from "@/components/ui/form-content-container/FormContentContainer.vue";
 import { priceText } from "@/utils/string-utils";
 import checkoutStore from "@/store/CheckoutStore";
+import Separator from "@/components/ui/separator/Separator.vue";
 </script>
 
 <template>
@@ -9,11 +10,15 @@ import checkoutStore from "@/store/CheckoutStore";
     title="Finishing up"
     subtitle="Please make sure everything looks good before continuing"
   >
-    <div class="bg-primary-light rounded-md">
+    <div class="bg-primary-light rounded-md p-4 md:px-8">
       <div>{{ checkoutStore.state.name }}</div>
       <div>{{ checkoutStore.state.email }}</div>
-      <div>-----</div>
-      <div class="flex justify-between">
+      <Separator
+        class="my-4"
+        v-if="checkoutStore.state.name || checkoutStore.state.email"
+      />
+
+      <div class="flex justify-between text-lg font-bold">
         <div>{{ checkoutStore.state.plan.name }}</div>
         <div>
           {{
@@ -24,15 +29,16 @@ import checkoutStore from "@/store/CheckoutStore";
           }}
         </div>
       </div>
-      <div>-----</div>
+
       <div v-if="checkoutStore.state.addons.length > 0">
+        <Separator class="my-4" />
         <div
           v-for="addon in checkoutStore.state.addons"
           :key="addon"
           class="flex justify-between"
         >
-          <div>{{ addon.name }}</div>
-          <div>
+          <div class="text-light_gray">{{ addon.name }}</div>
+          <div class="font-bold">
             {{
               priceText(
                 checkoutStore.state.isBilledYearly,
@@ -43,10 +49,10 @@ import checkoutStore from "@/store/CheckoutStore";
         </div>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex justify-between p-4 pt-6 md:px-8 md:pt-10">
       <div>Total</div>
 
-      <div>
+      <div class="text-lg font-bold">
         {{
           priceText(
             checkoutStore.state.isBilledYearly,
