@@ -18,7 +18,7 @@ defineProps<{
 <template>
   <FormContentContainer
     title="Personal information"
-    subtitle="Please provide your name"
+    subtitle="Please provide your name and email"
   >
     <form :id="formId" class="grid gap-6" @submit.prevent>
       <FormField v-slot="{ componentField }" name="name">

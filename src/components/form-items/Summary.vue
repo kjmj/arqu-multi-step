@@ -8,7 +8,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
 <template>
   <FormContentContainer
     title="Finishing up"
-    subtitle="Please make sure everything looks good before continuing"
+    subtitle="Please check that everything looks correct"
   >
     <div class="bg-primary-medium rounded-md p-4 md:px-8">
       <div>{{ checkoutStore.state.name }}</div>

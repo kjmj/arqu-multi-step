@@ -10,7 +10,7 @@ import Label from "@/components/ui/label/Label.vue";
 <template>
   <FormContentContainer
     title="Select your plan"
-    subtitle="You can choose to be billed monthly or annually"
+    subtitle="Annual plans give two months for free!"
   >
     <div class="flex flex-col align-center">
       <div class="grid grid-rows-1 gap-3 md:grid-cols-2">
