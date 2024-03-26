@@ -13,7 +13,7 @@ const priceText = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="bg-red-600 rounded-md">
     <div>{{ name }}</div>
     <div>{{ priceText }}</div>
   </div>

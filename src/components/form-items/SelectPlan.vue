@@ -12,19 +12,21 @@ import Label from "@/components/ui/label/Label.vue";
     title="Select your plan"
     subtitle="You can choose to be billed monthly or annually"
   >
-    <PlanCard
-      v-for="plan in plans"
-      :key="plan"
-      :name="plan.name"
-      :price="
-        checkoutStore.state.isBilledYearly
-          ? plan.pricePerYear
-          : plan.pricePerMonth
-      "
-      :is-yearly="checkoutStore.state.isBilledYearly"
-      @click="checkoutStore.methods.changePlan(plan)"
-    >
-    </PlanCard>
+    <div class="grid grid-rows-2 gap-2 md:grid-cols-2">
+      <PlanCard
+        v-for="plan in plans"
+        :key="plan"
+        :name="plan.name"
+        :price="
+          checkoutStore.state.isBilledYearly
+            ? plan.pricePerYear
+            : plan.pricePerMonth
+        "
+        :is-yearly="checkoutStore.state.isBilledYearly"
+        @click="checkoutStore.methods.changePlan(plan)"
+      >
+      </PlanCard>
+    </div>
     <div class="flex items-center space-x-2">
       <Label for="yearly-toggle">Monthly</Label>
       <Switch
