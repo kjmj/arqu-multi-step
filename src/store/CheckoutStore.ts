@@ -3,8 +3,9 @@ import { defaultPlan } from "@/data/plans";
 import { reactive } from "vue";
 import { Plan } from "@/types/Plan";
 import { AddOn } from "@/types/AddOn";
+import { CheckoutStoreStateType } from "@/store/CheckoutStoreStateType";
 
-const state = reactive({
+const state: CheckoutStoreStateType = reactive({
   name: "",
   email: "",
   plan: defaultPlan,
