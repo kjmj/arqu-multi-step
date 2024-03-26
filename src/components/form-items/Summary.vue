@@ -19,7 +19,7 @@ import checkoutStore from "@/store/CheckoutStore";
           {{
             priceText(
               checkoutStore.state.isBilledYearly,
-              checkoutStore.methods.planPrice(),
+              checkoutStore.methods.currentPlanPrice(),
             )
           }}
         </div>

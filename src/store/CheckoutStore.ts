@@ -26,7 +26,10 @@ const methods = {
       state.addons.push(addon);
     }
   },
-  planPrice(): number {
+  planPrice(plan: Plan): number {
+    return state.isBilledYearly ? plan.pricePerYear : plan.pricePerMonth;
+  },
+  currentPlanPrice(): number {
     return state.isBilledYearly
       ? state.plan.pricePerYear
       : state.plan.pricePerMonth;
