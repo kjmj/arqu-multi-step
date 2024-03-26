@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { Icon } from "@iconify/vue";
 
 const props = defineProps<{
+  planId: string;
   name: string;
   price: number;
   isYearly: boolean;
@@ -11,6 +13,34 @@ const props = defineProps<{
 const priceText = computed(() => {
   return props.isYearly ? `$${props.price}/year` : `$${props.price}/month`;
 });
+
+const radixIcon = computed(() => {
+  switch (props.planId) {
+    case "standard-plan-id": {
+      return "radix-icons:lightning-bolt";
+    }
+    case "pro-plan-id": {
+      return "radix-icons:star";
+    }
+    default: {
+      return "";
+    }
+  }
+});
+
+const iconColor = computed(() => {
+  switch (props.planId) {
+    case "standard-plan-id": {
+      return "#fcba03";
+    }
+    case "pro-plan-id": {
+      return "#15c260";
+    }
+    default: {
+      return "";
+    }
+  }
+});
 </script>
 
 <template>
@@ -18,10 +48,14 @@ const priceText = computed(() => {
     class="rounded-md plan-card text-left p-3 cursor-pointer"
     :class="isActive ? 'active' : ''"
   >
-    <div class="flex md:flex-col">
-      <div class="mr-4 md:mb-10">icon</div>
+    <div class="flex items-center md:items-start md:flex-col">
+      <Icon
+        :icon="radixIcon"
+        class="h-[2rem] w-[2rem] mr-4 md:mb-12"
+        :color="iconColor"
+      />
       <div>
-        <div>{{ name }}</div>
+        <div class="text-lg font-bold">{{ name }}</div>
         <div>{{ priceText }}</div>
       </div>
     </div>

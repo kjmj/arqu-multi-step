@@ -17,6 +17,7 @@ import Label from "@/components/ui/label/Label.vue";
         <PlanCard
           v-for="plan in plans"
           :key="plan"
+          :plan-id="plan.id"
           :name="plan.name"
           :price="
             checkoutStore.state.isBilledYearly
@@ -35,7 +36,7 @@ import Label from "@/components/ui/label/Label.vue";
         <Label
           for="yearly-toggle"
           class="flex items-center"
-          :class="checkoutStore.state.isBilledYearly ? '' : 'font-bold'"
+          :class="checkoutStore.state.isBilledYearly ? '' : 'font-extrabold'"
           >Monthly</Label
         >
         <Switch
@@ -47,7 +48,7 @@ import Label from "@/components/ui/label/Label.vue";
         <Label
           for="yearly-toggle"
           class="flex items-center"
-          :class="checkoutStore.state.isBilledYearly ? 'font-bold' : ''"
+          :class="checkoutStore.state.isBilledYearly ? 'font-extrabold' : ''"
           >Yearly</Label
         >
       </div>
