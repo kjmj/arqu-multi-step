@@ -6,6 +6,7 @@ import { AddOn } from "@/types/AddOn";
 
 const state = reactive({
   name: "",
+  email: "",
   plan: defaultPlan,
   addons: [],
   isBilledYearly: false,

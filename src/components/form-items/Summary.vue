@@ -11,6 +11,7 @@ import checkoutStore from "@/store/CheckoutStore";
   >
     <div class="bg-primary-light rounded-md">
       <div>{{ checkoutStore.state.name }}</div>
+      <div>{{ checkoutStore.state.email }}</div>
       <div>-----</div>
       <div class="flex justify-between">
         <div>{{ checkoutStore.state.plan.name }}</div>

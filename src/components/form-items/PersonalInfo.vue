@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import FormContentContainer from "@/components/ui/form-content-container/FormContentContainer.vue";
-import LabeledInput from "@/components/ui/labeled-input/LabeledInput.vue";
 import CheckoutStore from "@/store/CheckoutStore";
 import {
   FormControl,
@@ -8,6 +7,8 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import FormLabel from "@/components/ui/form/FormLabel.vue";
+import Input from "@/components/ui/input/Input.vue";
 
 defineProps<{
   formId: string;
@@ -22,14 +23,28 @@ defineProps<{
     <form :id="formId" @submit.prevent>
       <FormField v-slot="{ componentField }" name="name">
         <FormItem>
+          <FormLabel>Name</FormLabel>
           <FormControl>
-            <LabeledInput
-              id="name-input"
-              v-model="CheckoutStore.state.name"
-              label="Name"
-              placeholder="Jane Doe"
+            <Input
               v-bind="componentField"
-            ></LabeledInput>
+              v-model="CheckoutStore.state.name"
+              type="text"
+              placeholder="Jane Doe"
+            />
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      </FormField>
+      <FormField v-slot="{ componentField }" name="email">
+        <FormItem>
+          <FormLabel>Email</FormLabel>
+          <FormControl>
+            <Input
+              v-bind="componentField"
+              v-model="CheckoutStore.state.email"
+              type="text"
+              placeholder="jane@gmail.com"
+            />
           </FormControl>
           <FormMessage />
         </FormItem>
