@@ -70,12 +70,12 @@ watch(currentStep, (newCurrentStep) => {
 </script>
 
 <template>
-  <div class="h-full bg-white md:p-2 rounded-md shadow-md">
+  <div class="h-full bg-white md:p-2 rounded-lg shadow">
     <div
       class="h-full flex flex-col grow md:flex-row bg-off_white md:bg-transparent"
     >
       <div
-        class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start md:rounded-md py-8 md:p-8"
+        class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start md:rounded-lg py-8 md:p-8"
       >
         <div
           v-for="(step, idx) in steps"
@@ -94,7 +94,7 @@ watch(currentStep, (newCurrentStep) => {
       </div>
       <div class="flex flex-col grow justify-between min-h-0 p-4 md:p8">
         <div
-          class="overflow-y-auto rounded bg-white shadow-md md:shadow-none p-4 md:p-0 mx-2 sm:mx-10"
+          class="overflow-y-auto rounded-lg bg-white shadow md:shadow-none p-4 md:p-0 mx-2 sm:mx-10"
         >
           <div
             v-for="(step, idx) in steps"
