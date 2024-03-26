@@ -20,10 +20,13 @@ defineProps<{
     title="Personal information"
     subtitle="Please provide your name"
   >
-    <form :id="formId" @submit.prevent>
+    <form :id="formId" class="grid gap-6" @submit.prevent>
       <FormField v-slot="{ componentField }" name="name">
         <FormItem>
-          <FormLabel>Name</FormLabel>
+          <div class="flex items-center justify-between">
+            <FormLabel>Name</FormLabel>
+            <FormMessage />
+          </div>
           <FormControl>
             <Input
               v-bind="componentField"
@@ -32,12 +35,14 @@ defineProps<{
               placeholder="Jane Doe"
             />
           </FormControl>
-          <FormMessage />
         </FormItem>
       </FormField>
       <FormField v-slot="{ componentField }" name="email">
         <FormItem>
-          <FormLabel>Email</FormLabel>
+          <div class="flex items-center justify-between">
+            <FormLabel>Email</FormLabel>
+            <FormMessage />
+          </div>
           <FormControl>
             <Input
               v-bind="componentField"
@@ -46,7 +51,6 @@ defineProps<{
               placeholder="jane@gmail.com"
             />
           </FormControl>
-          <FormMessage />
         </FormItem>
       </FormField>
     </form>
