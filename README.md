@@ -13,6 +13,9 @@ npm run dev
 # build for production
 npm run build
 
+# preview build before production
+npm run preview
+
 # lint
 npm run lint
 
