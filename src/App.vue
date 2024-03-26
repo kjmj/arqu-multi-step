@@ -9,6 +9,7 @@ import { useForm } from "vee-validate";
 import { toTypedSchema } from "@vee-validate/zod";
 import * as z from "zod";
 
+// in order to separate logic out from Stepper.vue, we associate each step with an optional form
 const personalInfoFormId = "my-form-1";
 const personalInfoForm = useForm({
   validationSchema: toTypedSchema(

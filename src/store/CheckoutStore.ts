@@ -26,6 +26,9 @@ const methods = {
       state.addons.push(addon);
     }
   },
+};
+
+const getters = {
   planPrice(plan: Plan): number {
     return state.isBilledYearly ? plan.pricePerYear : plan.pricePerMonth;
   },
@@ -52,4 +55,5 @@ const methods = {
 export default {
   state: state,
   methods,
+  getters,
 };

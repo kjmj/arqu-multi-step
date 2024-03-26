@@ -14,8 +14,8 @@ import Separator from "@/components/ui/separator/Separator.vue";
       <div>{{ checkoutStore.state.name }}</div>
       <div>{{ checkoutStore.state.email }}</div>
       <Separator
-        class="my-4"
         v-if="checkoutStore.state.name || checkoutStore.state.email"
+        class="my-4"
       />
 
       <div class="flex justify-between text-lg font-bold">
@@ -24,7 +24,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
           {{
             priceText(
               checkoutStore.state.isBilledYearly,
-              checkoutStore.methods.currentPlanPrice(),
+              checkoutStore.getters.currentPlanPrice(),
             )
           }}
         </div>
@@ -42,7 +42,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
             {{
               priceText(
                 checkoutStore.state.isBilledYearly,
-                checkoutStore.methods.addOnPrice(addon),
+                checkoutStore.getters.addOnPrice(addon),
               )
             }}
           </div>
@@ -56,7 +56,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
         {{
           priceText(
             checkoutStore.state.isBilledYearly,
-            checkoutStore.methods.totalPriceSelected(),
+            checkoutStore.getters.totalPriceSelected(),
           )
         }}
       </div>
