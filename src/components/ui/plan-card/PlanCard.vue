@@ -28,10 +28,10 @@ const radixIcon = computed(() => {
 const iconColor = computed(() => {
   switch (props.plan.id) {
     case "standard-plan-id": {
-      return "#fcba03";
+      return "#ffbe0b";
     }
     case "pro-plan-id": {
-      return "#15c260";
+      return "#fb5607";
     }
     default: {
       return "";
@@ -61,7 +61,7 @@ const iconColor = computed(() => {
 
 <style scoped>
 .plan-card {
-  border: 1px solid theme("colors.secondary.DEFAULT");
+  border: 1px solid theme("colors.gray.lightest");
   transition: all 0.25s ease-in-out;
 }
 

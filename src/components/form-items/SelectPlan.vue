@@ -26,7 +26,7 @@ import Label from "@/components/ui/label/Label.vue";
         </PlanCard>
       </div>
       <div
-        class="flex justify-center space-x-2 p-4 bg-primary-light w-full mt-8 rounded-md"
+        class="flex justify-center space-x-2 p-4 bg-primary-medium w-full mt-8 rounded-md"
       >
         <Label
           for="yearly-toggle"

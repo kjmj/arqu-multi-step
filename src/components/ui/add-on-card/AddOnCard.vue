@@ -28,7 +28,7 @@ const props = defineProps<{
 
 <style scoped>
 .add-on-card {
-  border: 1px solid theme("colors.secondary.DEFAULT");
+  border: 1px solid theme("colors.gray.lightest");
   transition: all 0.25s ease-in-out;
 }
 

@@ -30,6 +30,7 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "var(--primary)",
+          medium: "var(--primary-medium)",
           foreground: "hsl(var(--primary-foreground))",
           light: "var(--primary-light)",
         },
@@ -57,9 +58,10 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        med_blue: "#1e40af",
-        off_white: "#e2e8f0",
-        light_gray: "#64748b",
+        gray: {
+          light: "#64748b",
+          lightest: "#e2e8f0",
+        },
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

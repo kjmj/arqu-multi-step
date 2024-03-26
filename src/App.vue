@@ -42,7 +42,7 @@ const steps = [
 <template>
   <div class="h-screen">
     <div
-      class="h-full md:place-content-center bg-off_white md:flex md:items-center md:justify-center"
+      class="h-full md:place-content-center bg-gray-lightest md:flex md:items-center md:justify-center md:p-8"
     >
       <Stepper
         :steps="steps"

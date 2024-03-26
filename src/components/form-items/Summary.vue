@@ -10,7 +10,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
     title="Finishing up"
     subtitle="Please make sure everything looks good before continuing"
   >
-    <div class="bg-primary-light rounded-md p-4 md:px-8">
+    <div class="bg-primary-medium rounded-md p-4 md:px-8">
       <div>{{ checkoutStore.state.name }}</div>
       <div>{{ checkoutStore.state.email }}</div>
       <Separator
@@ -37,7 +37,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
           :key="addon"
           class="flex justify-between"
         >
-          <div class="text-light_gray">{{ addon.name }}</div>
+          <div class="text-gray-light">{{ addon.name }}</div>
           <div class="font-bold">
             {{
               priceText(
@@ -52,7 +52,7 @@ import Separator from "@/components/ui/separator/Separator.vue";
     <div class="flex justify-between p-4 pt-6 md:px-8 md:pt-10">
       <div>Total</div>
 
-      <div class="text-lg font-bold">
+      <div class="text-lg font-bold text-primary">
         {{
           priceText(
             checkoutStore.state.isBilledYearly,

@@ -97,10 +97,10 @@ watch(currentStep, (newCurrentStep) => {
 <template>
   <div class="h-full bg-white md:p-2 rounded-lg shadow">
     <div
-      class="h-full flex flex-col grow md:flex-row bg-off_white md:bg-transparent"
+      class="h-full flex flex-col grow md:flex-row bg-gray-lightest md:bg-transparent"
     >
       <div
-        class="flex whitespace-nowrap md:flex-col bg-med_blue gap-8 justify-center md:justify-start md:rounded-lg py-8 md:p-8"
+        class="flex whitespace-nowrap md:flex-col bg-gradient-to-tr from-[#a067f0] to-[#5d13c5] gap-8 justify-center md:justify-start md:rounded-lg py-8 md:p-8"
       >
         <div
           v-for="(step, idx) in steps"
@@ -117,7 +117,9 @@ watch(currentStep, (newCurrentStep) => {
             to1BasedIdx(idx)
           }}</Circle>
           <div class="hidden md:block">
-            <div class="text-off_white">{{ "STEP " + to1BasedIdx(idx) }}</div>
+            <div class="text-gray-lightest">
+              {{ "STEP " + to1BasedIdx(idx) }}
+            </div>
             <div class="text-white font-bold">{{ step.text }}</div>
           </div>
         </div>
