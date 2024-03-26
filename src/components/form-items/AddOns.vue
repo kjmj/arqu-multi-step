@@ -19,11 +19,7 @@ function isAddOnSelected(addon: AddOn): boolean {
       <AddOnCard
         v-for="addon in addons"
         :key="addon"
-        :price="
-          checkoutStore.state.isBilledYearly
-            ? addon.pricePerYear
-            : addon.pricePerMonth
-        "
+        :price="checkoutStore.methods.addOnPrice(addon)"
         :is-yearly="checkoutStore.state.isBilledYearly"
         :addon="addon"
         :is-selected="isAddOnSelected(addon)"

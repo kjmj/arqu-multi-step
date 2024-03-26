@@ -18,11 +18,7 @@ import Label from "@/components/ui/label/Label.vue";
           v-for="plan in plans"
           :key="plan"
           :plan="plan"
-          :price="
-            checkoutStore.state.isBilledYearly
-              ? plan.pricePerYear
-              : plan.pricePerMonth
-          "
+          :price="checkoutStore.methods.planPrice()"
           :is-yearly="checkoutStore.state.isBilledYearly"
           :is-active="checkoutStore.state.plan.id === plan.id"
           @click="checkoutStore.methods.changePlan(plan)"

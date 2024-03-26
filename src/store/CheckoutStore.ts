@@ -25,6 +25,24 @@ const methods = {
       state.addons.push(addon);
     }
   },
+  planPrice(): number {
+    return state.isBilledYearly
+      ? state.plan.pricePerYear
+      : state.plan.pricePerMonth;
+  },
+  addOnPrice(addon: AddOn): number {
+    return state.isBilledYearly ? addon.pricePerYear : addon.pricePerMonth;
+  },
+  totalPriceSelected(): number {
+    let totalPrice = 0;
+    totalPrice += state.isBilledYearly
+      ? state.plan.pricePerYear
+      : state.plan.pricePerMonth;
+    state.addons.forEach((a) => {
+      totalPrice += state.isBilledYearly ? a.pricePerYear : a.pricePerMonth;
+    });
+    return totalPrice;
+  },
 };
 
 export default {
