@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Icon } from "@iconify/vue";
+import { Plan } from "@/types/Plan";
 
 const props = defineProps<{
-  planId: string;
-  name: string;
+  plan: Plan;
   price: number;
   isYearly: boolean;
   isActive: boolean;
@@ -15,7 +15,7 @@ const priceText = computed(() => {
 });
 
 const radixIcon = computed(() => {
-  switch (props.planId) {
+  switch (props.plan.id) {
     case "standard-plan-id": {
       return "radix-icons:lightning-bolt";
     }
@@ -29,7 +29,7 @@ const radixIcon = computed(() => {
 });
 
 const iconColor = computed(() => {
-  switch (props.planId) {
+  switch (props.plan.id) {
     case "standard-plan-id": {
       return "#fcba03";
     }
@@ -55,7 +55,7 @@ const iconColor = computed(() => {
         :color="iconColor"
       />
       <div>
-        <div class="text-lg font-bold">{{ name }}</div>
+        <div class="text-lg font-bold">{{ plan.name }}</div>
         <div>{{ priceText }}</div>
       </div>
     </div>

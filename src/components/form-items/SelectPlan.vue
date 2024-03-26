@@ -17,8 +17,7 @@ import Label from "@/components/ui/label/Label.vue";
         <PlanCard
           v-for="plan in plans"
           :key="plan"
-          :plan-id="plan.id"
-          :name="plan.name"
+          :plan="plan"
           :price="
             checkoutStore.state.isBilledYearly
               ? plan.pricePerYear
