@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { Icon } from "@iconify/vue";
 import { Plan } from "@/types/Plan";
+import { priceText } from "@/utils/string-utils";
 
 const props = defineProps<{
   plan: Plan;
@@ -9,10 +10,6 @@ const props = defineProps<{
   isYearly: boolean;
   isActive: boolean;
 }>();
-
-const priceText = computed(() => {
-  return props.isYearly ? `$${props.price}/year` : `$${props.price}/month`;
-});
 
 const radixIcon = computed(() => {
   switch (props.plan.id) {
@@ -56,7 +53,7 @@ const iconColor = computed(() => {
       />
       <div>
         <div class="text-lg font-bold">{{ plan.name }}</div>
-        <div>{{ priceText }}</div>
+        <div>{{ priceText(isYearly, price) }}</div>
       </div>
     </div>
   </div>

@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { AddOn } from "@/types/AddOn";
+import { priceText } from "@/utils/string-utils";
 const props = defineProps<{
   addon: AddOn;
   price: number;
   isYearly: boolean;
   isSelected: boolean;
 }>();
-
-const priceText = computed(() => {
-  return props.isYearly ? `$${props.price}/year` : `$${props.price}/month`;
-});
 </script>
 
 <template>
@@ -23,7 +19,7 @@ const priceText = computed(() => {
         <div class="text-lg font-bold">{{ props.addon.name }}</div>
         <div>{{ props.addon.description }}</div>
       </div>
-      <div>{{ priceText }}</div>
+      <div>{{ priceText(isYearly, price) }}</div>
     </div>
   </div>
 </template>
