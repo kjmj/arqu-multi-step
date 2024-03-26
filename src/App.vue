@@ -5,8 +5,37 @@ import AddOns from "@/components/form-items/AddOns.vue";
 import SelectPlan from "@/components/form-items/SelectPlan.vue";
 import Summary from "@/components/form-items/Summary.vue";
 import Submit from "@/components/form-items/Submit.vue";
+import { useForm } from "vee-validate";
+import { toTypedSchema } from "@vee-validate/zod";
+import * as z from "zod";
 
-const steps = ["YOUR INFO", "SELECT PLAN", "SELECT ADD-ONS", "SUMMARY"];
+const personalInfoFormId = "my-form-1";
+const personalInfoForm = useForm({
+  validationSchema: toTypedSchema(
+    z.object({
+      name: z.string().min(2, {
+        message: "Name must be at least 2 characters",
+      }),
+    }),
+  ),
+});
+
+const steps = [
+  {
+    text: "YOUR INFO",
+    form: personalInfoForm,
+    formId: personalInfoFormId,
+  },
+  {
+    text: "SELECT PLAN",
+  },
+  {
+    text: "SELECT ADD-ONS",
+  },
+  {
+    text: "SUMMARY",
+  },
+];
 </script>
 
 <template>
@@ -18,7 +47,9 @@ const steps = ["YOUR INFO", "SELECT PLAN", "SELECT ADD-ONS", "SUMMARY"];
         :steps="steps"
         class="md:w-[min(100%,800px)] md:h-[min(100%,550px)]"
       >
-        <template #item-1><PersonalInfo /></template>
+        <template #item-1
+          ><PersonalInfo :form-id="personalInfoFormId"
+        /></template>
         <template #item-2><SelectPlan /></template>
         <template #item-3><AddOns /></template>
         <template #item-4><Summary /></template>

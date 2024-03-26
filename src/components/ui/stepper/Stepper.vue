@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from "vue";
 import Button from "@/components/ui/button/Button.vue";
-import { to1BasedIdx } from "@/utils/string-utils";
+import { to0BasedIdx, to1BasedIdx } from "@/utils/string-utils";
 import { useRouter } from "vue-router";
 import Circle from "@/components/ui/circle/Circle.vue";
+import { StepperStep } from "@/types/StepperStep";
 
 const router = useRouter();
 
 const props = defineProps<{
-  steps: any[];
+  steps: StepperStep[];
 }>();
 
 const currentStep = ref(1);
@@ -17,8 +18,28 @@ function goBackClicked(): void {
   currentStep.value -= 1;
 }
 
-function nextStepClicked(): void {
-  currentStep.value += 1;
+async function nextStepClicked(): Promise<void> {
+  // try to validate the forms
+  // if one is invalid, bring them to that step
+  for (const [i, step] of Object.values(props.steps).entries()) {
+    if (step.form) {
+      const result = await step.form.validate();
+      if (!result.valid) {
+        currentStep.value = to1BasedIdx(i);
+        break;
+      }
+    }
+  }
+
+  // advance to the next step if the form is valid (or there is no form) on this step
+  if (currentStepObj.value.form) {
+    const result = await currentStepObj.value.form.validate();
+    if (result.valid) {
+      currentStep.value += 1;
+    }
+  } else {
+    currentStep.value += 1;
+  }
 }
 
 function isIdxCurrentStep(idx: number): boolean {
@@ -60,6 +81,10 @@ const nextStepButtonText = computed(() => {
   return currentStep.value === props.steps.length ? "Submit" : "Next Step";
 });
 
+const currentStepObj = computed(() => {
+  return props.steps[to0BasedIdx(currentStep.value)];
+});
+
 onMounted(() => {
   pushToStep(1);
 });
@@ -88,7 +113,7 @@ watch(currentStep, (newCurrentStep) => {
           }}</Circle>
           <div class="hidden md:block">
             <div class="text-off_white">{{ "STEP " + to1BasedIdx(idx) }}</div>
-            <div class="text-white font-bold">{{ step }}</div>
+            <div class="text-white font-bold">{{ step.text }}</div>
           </div>
         </div>
       </div>
@@ -114,9 +139,13 @@ watch(currentStep, (newCurrentStep) => {
             @click="goBackClicked"
             >Go Back</Button
           >
-          <Button class="justify-self-end ml-auto" @click="nextStepClicked">{{
-            nextStepButtonText
-          }}</Button>
+          <Button
+            class="justify-self-end ml-auto"
+            :form="currentStepObj?.formId"
+            type="submit"
+            @click="nextStepClicked"
+            >{{ nextStepButtonText }}</Button
+          >
         </div>
       </div>
     </div>
