@@ -6,7 +6,7 @@ import SelectPlan from "@/components/form-items/SelectPlan.vue";
 import Summary from "@/components/form-items/Summary.vue";
 import Submit from "@/components/form-items/Submit.vue";
 
-const steps = ["YOUR INFO", "SELECT A PLAN", "SELECT ADD-ONS", "SUMMARY"];
+const steps = ["YOUR INFO", "SELECT PLAN", "SELECT ADD-ONS", "SUMMARY"];
 </script>
 
 <template>

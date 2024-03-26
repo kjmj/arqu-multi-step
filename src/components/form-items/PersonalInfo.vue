@@ -6,7 +6,7 @@ import CheckoutStore from "@/store/CheckoutStore";
 
 <template>
   <FormContentContainer
-    title="Personal Information"
+    title="Personal information"
     subtitle="Please provide your name"
   >
     <LabeledInput
